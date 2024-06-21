@@ -1,0 +1,117 @@
+﻿@model HET.DAL.Models.HouseEnergyModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Hero Section -->
+<section id="hero" class="hero section">
+
+    <div class="info d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-6 text-center">
+                    <h2>Welcome to Home Energy Tracker</h2>
+                    <p>Start calculating your household yearly energy consumption</p>
+                    <a href="#get-started" class="btn-get-started">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <div class="carousel-item active">
+            <img src="~/img/hero-carousel/hero-carousel-1.jpg" alt="">
+        </div>
+
+        <div class="carousel-item">
+            <img src="~/img/hero-carousel/hero-carousel-2.jpg" alt="">
+        </div>
+
+        <div class="carousel-item">
+            <img src="~/img/hero-carousel/hero-carousel-3.jpg" alt="">
+        </div>
+
+        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+    </div>
+
+</section><!-- /Hero Section -->
+<!-- Get Started Section -->
+<section id="get-started" class="get-started section">
+
+    <div class="container">
+
+        <div class="row justify-content-center gy-4">
+
+            <div class="col-lg-5" data-aos="zoom-out" data-aos-delay="200">
+                <form asp-action="CalculateEnergyConsumption" method="post" class="php-email-form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label asp-for="HouseArea" class="form-label">House Area (m²)</label>
+                            <input asp-for="HouseArea" class="form-control" />
+                            <span asp-validation-for="HouseArea" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="InsulationType" class="form-label">Insulation Type</label>
+                            <select asp-for="InsulationType" class="form-control" asp-items="ViewBag.InsulationType"> </select>
+                            <span asp-validation-for="InsulationType" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="WindowArea" class="form-label">Window Area (m²)</label>
+                            <input asp-for="WindowArea" class="form-control" />
+                            <span asp-validation-for="WindowArea" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="NumberOfOccupants" class="form-label">Number of Occupants</label>
+                            <input asp-for="NumberOfOccupants" class="form-control" />
+                            <span asp-validation-for="NumberOfOccupants" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="HeatingSystemType" class="form-label">Heating System Type</label>
+                            <select asp-for="HeatingSystemType" class="form-control" asp-items="ViewBag.HeatingSystemType"> </select>
+                            <span asp-validation-for="HeatingSystemType" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="CoolingSystemType" class="form-label">Cooling System Type</label>
+                            <select asp-for="CoolingSystemType" class="form-control" asp-items="ViewBag.CoolingSystemType"> </select>
+                            <span asp-validation-for="CoolingSystemType" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="ApplianceEfficiency" class="form-label">Appliance Efficiency</label>
+                            <input asp-for="ApplianceEfficiency" class="form-control" />
+                            <span asp-validation-for="ApplianceEfficiency" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="LightingType" class="form-label">Lighting Type</label>
+                            <select asp-for="LightingType" class="form-control" asp-items="ViewBag.LightingType"> </select>
+                            <span asp-validation-for="LightingType" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="AnnualSunlightHours" class="form-label">Annual Sunlight Hours</label>
+                            <input asp-for="AnnualSunlightHours" class="form-control" />
+                            <span asp-validation-for="AnnualSunlightHours" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="OutdoorTemperatureRange" class="form-label">Outdoor Temperature Range (°C)</label>
+                            <input asp-for="OutdoorTemperatureRange" class="form-control" />
+                            <span asp-validation-for="OutdoorTemperatureRange" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button type="submit">Calculate</button>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- End Quote Form -->
+
+        </div>
+
+    </div>
+
+</section><!-- /Get Started Section -->
